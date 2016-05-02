@@ -19,9 +19,13 @@ endDate <- as.Date("2007-02-02")
 cat("create filtered hpc set \n")
 filtered_hpc <-subset(hpc,Date >= startDate & Date <= endDate) 
 
+filtered_hpc$Sub_metering_1 <- as.numeric(filtered_hpc$Sub_metering_1)
+filtered_hpc$Sub_metering_2 <- as.numeric(filtered_hpc$Sub_metering_2)
+filtered_hpc$Sub_metering_3 <- as.numeric(filtered_hpc$Sub_metering_3)
+
 #plot to png
 filetowrite <- "C:\\Users\\klm45692\\Desktop\\course\\Exploring data\\week 1\\plot4.png"
-#png(filename=filetowrite)
+png(filename=filetowrite)
 
 #create datetime field
 x <- paste(filtered_hpc$Date, filtered_hpc$Time)
@@ -50,4 +54,4 @@ legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_
 plot(filtered_hpc$DateTime,filtered_hpc$Global_reactive_power,xlab="datetime",ylab="Global_reactive_power",type="l")
 
 #shut down PNG device
-#dev.off()
+dev.off()

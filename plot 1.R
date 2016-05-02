@@ -18,6 +18,7 @@ endDate <- as.Date("2007-02-02")
 
 cat("create filtered hpc set \n")
 filtered_hpc <-subset(hpc,Date >= startDate & Date <= endDate) 
+filtered_hpc$Global_active_power <- as.numeric(filtered_hpc$Global_active_power)
 
 #plot to png
 filetowrite <- "C:\\Users\\klm45692\\Desktop\\course\\Exploring data\\week 1\\plot1.png"
